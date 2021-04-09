@@ -1,0 +1,48 @@
+# OpenSSL to generate a certificate signing requests(csr) configuration file.
+# v1
+
+[ req ]
+# Options for the `req` tool (`man req`).
+# use prompt config control user interactive
+input_password = 123456
+
+default_bits        = 4096
+distinguished_name  = req_distinguished_name
+string_mask         = utf8only
+
+# SHA-1 is deprecated, so use SHA-2 instead.
+default_md          = sha256
+
+# Extension to add when the -x509 option is used.
+#x509_extensions     = v3_ca
+req_extensions     = v3_req
+
+[ req_distinguished_name ]
+# See <https://en.wikipedia.org/wiki/Certificate_signing_request>.
+countryName= 国名(C)（2个字母代码）            # 国家名(C)
+countryName_default = "CN"                   # 默认的国家名
+stateOrProvinceName= 省/州名(S)（全名）       # 省份(S)
+stateOrProvinceName_default = "SiChuan"
+localityName = 城市/地点名称(LT)              # 城市(LT)
+localityName_default = "ChengDu"
+organizationName = 公司/组织名称(ON)          # 公司(ON)
+organizationName_default = "Xunmei"
+organizationalUnitName  = 部门/单位名称(OU)   # 部门(OU)
+organizationalUnitName_default = "Dev"
+## 以下的commonName(CN)一般必须给,如果作为CA，那么需要在ca的policy中定义CN = supplied
+## CN定义的是将要申请SSL证书的域名或子域名或主机名。
+## 例如要为zhonghua.com申请ssl证书则填写zhonghua.com，而不能填写www.zhonghua.com
+## 要为www.zhonghua.com申请SSL则填写www.zhonghua.com
+## CN必须和将要访问的网站地址一样，否则访问时就会给出警告
+## 该项要填写正确，否则该请求被签名后证书中的CN与实际环境中的CN不对应，将无法提供证书服务
+commonName = 域名/主机名称(CN)                # 主机名(CN)
+commonName_max = 64
+commonName_default = "test.com"
+
+[ v3_req ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = www.test.com
+DNS.2 = test.com
+IP.1 = 192.168.0.96
