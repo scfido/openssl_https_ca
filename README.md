@@ -158,6 +158,6 @@ Windows系统导入中间证书，浏览器访问网站才显示为信任证书�
 
 ## 参考
 
-[使用 OpenSSL 创建私有 CA：1 根证书](https://www.cnblogs.com/sparkdev/p/10388395.html)
-[使用 OpenSSL 创建私有 CA：2 根证书](https://www.cnblogs.com/sparkdev/p/10387520.html)
-[使用 OpenSSL 创建私有 CA：3 根证书](https://www.cnblogs.com/sparkdev/p/10388395.html)
+- [使用 OpenSSL 创建私有 CA：1 根证书](https://www.cnblogs.com/sparkdev/p/10369313.html)
+- [使用 OpenSSL 创建私有 CA：2 根证书](https://www.cnblogs.com/sparkdev/p/10387520.html)
+- [使用 OpenSSL 创建私有 CA：3 根证书](https://www.cnblogs.com/sparkdev/p/10388395.html)
